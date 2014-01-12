@@ -7,8 +7,7 @@ Often found myself having to go through the rigmarole of the using the EC2 webco
 
 Usage
 -----
-`pg -q api.mycoolapp.com`
-
+`pg.exe -q api.mycoolapp.com`
 
 Requirements
 ------------
@@ -16,6 +15,14 @@ You'll need your AWS IAM credentials (key and secret).
 Set them in your environment using the standard AWS command line tools environment variables (AWS_SECRET_KEY and AWS_SECRET_KEY) or pass them in using params
 Currently built for Windows 8, will setup a build process for MacOS and RPM Linux.
 - Python >= 2.7
+
+TODO
+----
+- TODO build with py2exe
+- TODO build script
+- TODO build on macos
+- TODO build on linux
+- TODO add github screenshot
 
 License
 -------

@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# TODO build with py2exe
-# TODO build script
-# TODO github launch
-# TODO build on macos
-# TODO build on linux
+
 '''pigeon droppings
 
 Get the Running EC2 instances in your AWS beginning with <query>
