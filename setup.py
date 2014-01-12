@@ -1,5 +1,7 @@
 import os
 from setuptools import setup, find_packages
+from distutils.core import setup
+import py2exe
 
 from pigeon_droppings import __version__
 
