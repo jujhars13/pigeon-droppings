@@ -3,7 +3,7 @@ Pigeon Droppings
 Utility that gets the DNS names of your Amazon Web services EC2 instances based on the name you supply.
 
 Often found myself having to go through the rigmarole of the using the EC2 webconsole to find the DNS name of servers to administer them.  Now I don't have to leave my beloved console.
-**aws-describe-instances** from the [AWS command line tools](http://aws.amazon.com/cli/) does the same, but the syntax is difficult and the output is very messy and it's hard to find what you want (even with bash-fu).  This util just gives you your DNS name and the instance name.
+**aws-describe-instances** from the [AWS command line tools](http://aws.amazon.com/cli/) does the same, but the syntax is difficult and the output is very messy and inconsistent which makes it's hard to find what you want (even with bash-fu).  This util just gives you your DNS name and the instance name.
 
 Usage
 -----
