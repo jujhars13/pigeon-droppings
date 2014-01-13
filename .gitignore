@@ -3,3 +3,4 @@
 /build
 /bin
 /Pigeon_Droppings.egg-info
+*.pyc
