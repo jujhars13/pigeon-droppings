@@ -10,23 +10,24 @@ import pigeon_droppings
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-
 requirements = []
 
 setup(
     name="Pigeon Droppings",
     version=".".join(map(str, __version__)),
-    description="Utility that gets the DNS names of your aws instances based on the name you supply",
+    description="Utility that gets the DNS names of your aws EC2 instances based on the name you supply",
     long_description=read('README.rst'),
-    url='',
+    url='https://github.com/jujhars13/pigeon-droppings',
     license='MIT',
     author='Jujhar Singh',
     author_email='jujhar@jujhar.com',
+    keywords="aws ec2",
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
+    scripts=["pigeon_droppings/__main__.py"],
     entry_points={
         'console_scripts': [
-            'pd = pigeon_droppings.__main__:main',
+            'pd = pigeon_droppings.__main__:main'
         ],
     },
     classifiers=[
@@ -36,8 +37,8 @@ setup(
         'Intended Audience :: Information Technology',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
+        'Programming Language :: Python'
     ],
     install_requires=requirements,
-    tests_require=[],
+    tests_require=[]
 )

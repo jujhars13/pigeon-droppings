@@ -1,3 +1,4 @@
 docopt
 ec2
 clint
+py2exe
