@@ -24,7 +24,6 @@ setup(
     keywords="aws ec2",
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
-    scripts=["pigeon_droppings/__main__.py"],
     entry_points={
         'console_scripts': [
             'pd = pigeon_droppings.__main__:main'
@@ -40,5 +39,5 @@ setup(
         'Programming Language :: Python'
     ],
     install_requires=requirements,
-    tests_require=[]
+    tests_require=[],
 )

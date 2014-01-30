@@ -68,13 +68,15 @@ def main():
     if (len(instances)) > 0:
         print "Found " + str(len(instances)) + " running instances:"
         for instance in instances:
-            print (getattr(colored, 'magenta')(instance.public_dns_name)) + "\t",
-            print " " + (getattr(colored, 'blue')(instance.tags['Name'])).ljust(40)
+            print (getattr(colored, 'cyan')(instance.public_dns_name)) + "\t",
+            print " " + (getattr(colored, 'magenta')(instance.tags['Name'] if instance.tags['Name'] else '*blank*')).ljust(40)
         if (args['-v']):
             print (getattr(colored, 'green')(instance.instance_type)),
-            print (getattr(colored, 'cyan')(instance.placement))
+            print (getattr(colored, 'blue')(instance.placement))
     else:
         print "Didn't find any running instances beginning with " + query
 
-    if __name__ == '__main__':
-        main()
+    # if __name__ == '__main__':
+    #     main()
+
+main()
