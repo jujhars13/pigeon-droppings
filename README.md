@@ -13,13 +13,21 @@ Requirements
 ------------
 You'll need your AWS IAM credentials (key and secret).
 Set them in your environment using the standard AWS command line tools environment variables (AWS_SECRET_KEY and AWS_SECRET_KEY) or pass them in using params
-Currently built for Windows 8, will setup a build process for MacOS and RPM Linux.
+Originally built for Windows 8, works on MacOS and DEB Linux.
 - Python >= 2.7
 
 TODO
 ----
 - TODO build script
 - TODO add github screenshot
+
+## Ansible
+Just added an [Ansible](http://www.ansible.com/home) output format version
+
+
+## Credits
+[https://github.com/mattrobenolt/ec2](https://github.com/mattrobenolt/ec2) nice sugar on top of boto
+
 
 License
 -------
