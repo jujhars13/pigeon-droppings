@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+z#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 '''pigeon droppings
@@ -6,11 +6,11 @@
 Get the Running EC2 instances in your AWS beginning with <query>
 
 Usage:
-  pg [options] -q <query>
-  pg (-h | --help)
+  pd [options] -q <query>
+  pd (-h | --help)
 
 Examples:
-  pg -q api
+  pd -q api
 
 Options:
   -q <query>                  search by instance name, eg web-server...

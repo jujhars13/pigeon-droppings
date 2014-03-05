@@ -7,7 +7,7 @@ Often found myself having to go through the rigmarole of the using the EC2 webco
 
 Usage
 -----
-`pg.exe -q api.mycoolapp.com`
+`pd.exe -q api.mycoolapp.com`
 
 Requirements
 ------------
@@ -18,10 +18,7 @@ Currently built for Windows 8, will setup a build process for MacOS and RPM Linu
 
 TODO
 ----
-- TODO build with py2exe
 - TODO build script
-- TODO build on macos
-- TODO build on linux
 - TODO add github screenshot
 
 License
