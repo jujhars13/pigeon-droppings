@@ -22,12 +22,32 @@ TODO
 - TODO add github screenshot
 
 ## Ansible
-Just added an [Ansible](http://www.ansible.com/home) output format version
+Just added an [Ansible](http://www.ansible.com/home) output compatible format version `pd-ansible.py`
 
+`pd-ansible` --host <hostname>` will output something like below.  You can use these as vars in your Ansible scripts
 
-## Credits
+```javascript
+    {
+      "kernel": "aki-52a34525",
+      "private_dns_name": "ip-11-41-123-119.eu-west-1.compute.internal",
+      "tags": {
+        "application_name": "futo-ppi"
+      },
+      "dns_name": "ec2-11-41-123-119.eu-west-1.compute.amazonaws.com",
+      "launch_time": "2014-03-02T11:25:10.000Z",
+      "persistent": false,
+      "image_id": "ami-2226b825",
+      "key_name": "Futon",
+      "spot_instance_request_id": null,
+      "ip_address": "11.31.29.523",
+      "id": "i-abf7c7fd"
+    }
+```
+
+## Deps
 [https://github.com/mattrobenolt/ec2](https://github.com/mattrobenolt/ec2) nice sugar on top of boto
-
+[https://github.com/docopt/docopt](https://github.com/docopt/docopt)
+[https://github.com/kennethreitz/clint](https://github.com/kennethreitz/clint)
 
 License
 -------

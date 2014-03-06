@@ -4,7 +4,6 @@
 '''pigeon droppings the Ansible version
 
 Get the Running EC2 instances in your AWS beginning with <query> outputs in ansible friendly json
-
 Usage:
   pd [options] --list
   pd [options] --host <hostname>
@@ -15,7 +14,7 @@ Examples:
 
 Options:
   --list                      return all instances
-  --host                      return all info about a host
+  --host <hostname>           return all info about a host
   -h --help                   Show this screen.
   -v                          Verbose output
   --version                   Show version.
@@ -27,29 +26,27 @@ Options:
 import docopt
 import ec2
 import os
-from clint.textui import colored
 import json
 import pprint
 import sys
 
 """ Outputs a list of all our machines
+use --list
 """
 
-inventory = {}
-
 def getList():
-    output = ""
     instances = ec2.instances.filter(state='running')
 
+    applications = {}
     for instance in instances:
-        if (hasattr(instance,'tags')):
+        if (hasattr(instance, 'tags')):
             if ('application_name' in instance.tags):
-                pprint.pprint(instance.tags)
-        #if (instance.tags['application_name']):
-           # pprint.pprint(instance.tags)
+                application_name = instance.tags['application_name']
+                if not application_name in applications:
+                    applications[application_name] = []
+                applications[instance.tags['application_name']].append(instance.dns_name)
 
-    print json.dumps(inventory)
-
+    print json.dumps(applications)
     sys.exit(0)
 
 
@@ -57,8 +54,26 @@ def getList():
 """
 
 
-def hostInfo():
-    output = ""
+def hostInfo(dns_name):
+    output = dns_name
+    machine = ec2.instances.filter(state='running', public_dns_name=dns_name)
+    if (not machine):
+        print "cant find machine with dns of dns_name"
+    else:
+        instance = machine.pop()
+        #pprint.pprint(instance.__dict__)
+        output = {}
+        output['id'] = instance.id
+        output['dns_name'] = instance.dns_name
+        output['ip_address'] = instance.ip_address
+        output['private_dns_name'] = instance.private_dns_name
+        output['image_id'] = instance.image_id
+        output['kernel'] = instance.kernel
+        output['tags']=instance.tags
+        output['spot_instance_request_id'] = instance.spot_instance_request_id
+        output['persistent'] = instance.persistent
+        output['key_name'] = instance.key_name
+        output['launch_time'] = instance.launch_time
     print json.dumps(output)
     sys.exit(0)
 
@@ -96,30 +111,11 @@ def main():
     if (args['--list']):
         getList()
     elif (args['--host']):
-        hostInfo()
+        hostInfo(args['--host'])
     else:
         print "You must specify either --list or --host"
-
-        # # the api query
-        # query = args['-q']
-        # instances = ec2.instances.filter(state='running', name__ilike=query)
-        #
-        # print "Checking for '" + query + "' amongst your EC2 instances..."
-        #
-        # #foreach and print using (clint)colours
-        # if (len(instances)) > 0:
-        #     print "Found " + str(len(instances)) + " running instances:"
-        #     for instance in instances:
-        #         print (getattr(colored, 'cyan')(instance.public_dns_name)) + "\t",
-        #         print " " + (
-        #             getattr(colored, 'magenta')(instance.tags['Name'] if instance.tags['Name'] else '*blank*')).ljust(40)
-        #     if (args['-v']):
-        #         print (getattr(colored, 'green')(instance.instance_type)),
-        #         print (getattr(colored, 'blue')(instance.placement))
-        # else:
-        #     print "Didn't find any running instances beginning with " + query
-        #
 
 
 if __name__ == '__main__':
     main()
+
