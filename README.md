@@ -13,7 +13,7 @@ Requirements
 ------------
 You'll need your AWS IAM credentials (key and secret).
 Set them in your environment using the standard AWS command line tools environment variables (AWS_SECRET_KEY and AWS_SECRET_KEY) or pass them in using params
-Originally built for Windows 8, works on MacOS and DEB Linux.
+Originally built for Windows 8, works on OS X and DEB Linux.
 - Python >= 2.7
 
 TODO
