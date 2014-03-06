@@ -19,7 +19,7 @@ Originally built for Windows 8, works on MacOS and DEB Linux.
 TODO
 ----
 - TODO build script
-- TODO add github screenshot
+- TOOD better testing
 
 ## Ansible
 Just added an [Ansible](http://www.ansible.com/home) output compatible format version `pd-ansible.py`
@@ -45,8 +45,10 @@ Just added an [Ansible](http://www.ansible.com/home) output compatible format ve
 ```
 
 ## Deps
-[https://github.com/mattrobenolt/ec2](https://github.com/mattrobenolt/ec2) nice sugar on top of boto
+[https://github.com/mattrobenolt/ec2](https://github.com/mattrobenolt/ec2) nice sugar on top of [boto](https://github.com/boto/boto)
+
 [https://github.com/docopt/docopt](https://github.com/docopt/docopt)
+
 [https://github.com/kennethreitz/clint](https://github.com/kennethreitz/clint)
 
 License
