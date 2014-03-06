@@ -19,12 +19,12 @@ Originally built for Windows 8, works on OS X and DEB Linux.
 TODO
 ----
 - TODO build script
-- TOOD better testing
+- TODO better testing
 
 ## Ansible
 Just added an [Ansible](http://www.ansible.com/home) output compatible format version `pd-ansible.py`
 
-`pd-ansible` --host <hostname>` will output something like below.  You can use these as vars in your Ansible scripts
+`pd-ansible` --host <hostname>` will output something like below.  You can use these as vars in your Ansible playbooks
 
 ```javascript
     {
