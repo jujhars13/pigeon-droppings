@@ -62,4 +62,4 @@ Why Pigeon Droppings?
 --------------------
 My [CTO](http://uk.linkedin.com/in/doylie) suggested it as a name for a software project, so I took him up on it.
 
-It's known as "Kabooter Tatee" ਕਬੂਤਰ ਤਤੀ in the [Punjabi](http://en.wikipedia.org/wiki/Punjabi_language) language, which just tickles me silly.
+It's known as *Kabooter Tatee* or ਕਬੂਤਰ ਤਤੀ in the [Punjabi](http://en.wikipedia.org/wiki/Punjabi_language) language, which just tickles me silly.
