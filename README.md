@@ -1,5 +1,7 @@
 Pigeon Droppings
 ======================================
+
+![](http://octodex.github.com/images/yaktocat.png)
 Utility that gets the DNS names of your Amazon Web services EC2 instances based on the name you supply.
 
 Often found myself having to go through the rigmarole of the using the EC2 webconsole to find the DNS name of servers to administer them.  Now I don't have to leave my beloved [console](http://gnometerminator.blogspot.co.uk/p/introduction.html).
@@ -58,3 +60,5 @@ MIT licensed.
 Why Pigeon Droppings?
 --------------------
 My [CTO](http://uk.linkedin.com/in/doylie) suggested it as a name for a software project, so I took him up on it.
+
+It's known as "Kabooter Tatee" ਕਬੂਤਰ ਤਤੀ in the [Punjabi](http://en.wikipedia.org/wiki/Punjabi_language) language, which just tickles me silly.
