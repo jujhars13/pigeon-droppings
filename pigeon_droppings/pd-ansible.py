@@ -111,7 +111,7 @@ def main():
 
     #if key or secret is not found
     if (aws_id is None or aws_secret is None):
-        print "You need to provide your AWS ID and Secret Key via --id and --key OR via your environment using AWS_ACCESS_KEY and AWS_SECRET_KEY"
+        print "You need to provide your AWS ID and Secret Key via --id and --key OR via your environment using AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY"
         quit()
     else:
         # set the aws ec2 credentials
