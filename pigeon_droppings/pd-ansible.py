@@ -5,12 +5,14 @@
 
 Get the Running EC2 instances in your AWS beginning with <query> outputs in ansible friendly json
 Usage:
+  pd
   pd [options] --list
   pd [options] --host <hostname>
   pd (-h | --help)
 
 Examples:
   pd --list
+  pd
 
 Options:
   --list                      return all instances
@@ -29,10 +31,12 @@ import os
 import json
 import pprint
 import sys
+import re
 
 """ Outputs a list of all our machines
 use --list
 """
+
 
 def getList():
     instances = ec2.instances.filter(state='running')
@@ -41,12 +45,12 @@ def getList():
     for instance in instances:
         if (hasattr(instance, 'tags')):
             if ('application_name' in instance.tags):
-                application_name = instance.tags['application_name']
+                application_name = to_safe(instance.tags['application_name'])
                 if not application_name in applications:
                     applications[application_name] = []
-                applications[instance.tags['application_name']].append(instance.dns_name)
+                applications[application_name].append(instance.dns_name)
 
-    print json.dumps(applications)
+    print json.dumps(applications, sort_keys=True, indent=2)
     sys.exit(0)
 
 
@@ -69,13 +73,20 @@ def hostInfo(dns_name):
         output['private_dns_name'] = instance.private_dns_name
         output['image_id'] = instance.image_id
         output['kernel'] = instance.kernel
-        output['tags']=instance.tags
+        output['tags'] = instance.tags
         output['spot_instance_request_id'] = instance.spot_instance_request_id
         output['persistent'] = instance.persistent
         output['key_name'] = instance.key_name
         output['launch_time'] = instance.launch_time
-    print json.dumps(output)
+    print json.dumps(output, sort_keys=True, indent=2)
     sys.exit(0)
+
+
+def to_safe(word):
+    ''' Converts 'bad' characters in a string to underscores so they can be
+    used as Ansible groups '''
+
+    return re.sub("[^A-Za-z0-9\-]", "_", word)
 
 
 def main():
@@ -84,12 +95,12 @@ def main():
 
     #get AWS details from os environment if not passed in, if still not set then prompt user
     if (args['--id'] is None):
-        aws_id = os.environ['AWS_ACCESS_KEY'] if os.environ.has_key('AWS_ACCESS_KEY') else None
+        aws_id = os.environ['AWS_ACCESS_KEY_ID'] if os.environ.has_key('AWS_ACCESS_KEY_ID') else None
     else:
         aws_id = args['--id']
 
     if (args['--key'] is None):
-        aws_secret = os.environ['AWS_SECRET_KEY'] if os.environ.has_key('AWS_SECRET_KEY') else None
+        aws_secret = os.environ['AWS_SECRET_ACCESS_KEY'] if os.environ.has_key('AWS_SECRET_ACCESS_KEY') else None
     else:
         aws_secret = args['--key']
 
@@ -113,7 +124,7 @@ def main():
     elif (args['--host']):
         hostInfo(args['--host'])
     else:
-        print "You must specify either --list or --host"
+        getList()
 
 
 if __name__ == '__main__':
