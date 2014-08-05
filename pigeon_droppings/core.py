@@ -60,7 +60,7 @@ def main():
 
     # the api query
     query = args['-q']
-    instances = ec2.instances.filter(state='running', name__ilike=query)
+    instances = ec2.instances.filter(state='running', name__icontains=query)
 
     print "Checking for '" + query + "' amongst your EC2 instances..."
 
