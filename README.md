@@ -47,6 +47,13 @@ Just added an [Ansible](http://www.ansible.com/home) output compatible format ve
     }
 ```
 
+## Requirements
+
+- Python 2.7
+
+### Ubuntu/Fedora
+run `sudo pip install -r requirements.txt` to install all deps required for this project
+
 ## Deps
 [https://github.com/mattrobenolt/ec2](https://github.com/mattrobenolt/ec2) nice sugar on top of [boto](https://github.com/boto/boto)
 
