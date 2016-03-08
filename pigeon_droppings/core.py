@@ -34,12 +34,12 @@ def main():
 
     #get AWS details from os environment if not passed in, if still not set then prompt user
     if (args['--id'] is None):
-        aws_id = os.environ['AWS_ACCESS_KEY'] if os.environ.has_key('AWS_ACCESS_KEY') else None
+        aws_id = os.environ['AWS_ACCESS_KEY_ID'] if os.environ.has_key('AWS_ACCESS_KEY_ID') else None
     else:
         aws_id = args['--id']
 
     if (args['--key'] is None):
-        aws_secret = os.environ['AWS_SECRET_KEY'] if os.environ.has_key('AWS_SECRET_KEY') else None
+        aws_secret = os.environ['AWS_SECRET_ACCESS_KEY'] if os.environ.has_key('AWS_SECRET_ACCESS_KEY') else None
     else:
         aws_secret = args['--key']
 
@@ -50,7 +50,7 @@ def main():
 
     #if key or secret is not found
     if (aws_id is None or aws_secret is None):
-        print "You need to provide your AWS ID and Secret Key via --id and --key OR via your environment using AWS_ACCESS_KEY and AWS_SECRET_KEY"
+        print "You need to provide your AWS ID and Secret Key via --id and --key OR via your environment using AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY"
         quit()
     else:
         # set the aws ec2 credentials
