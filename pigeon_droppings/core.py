@@ -69,6 +69,7 @@ def main():
         print "Found " + str(len(instances)) + " running instances:"
         for instance in instances:
             print (getattr(colored, 'cyan')(instance.public_dns_name)) + "\t",
+            print (getattr(colored, 'green')(instance.id)),
             print " " + (getattr(colored, 'magenta')(instance.tags['Name'] if instance.tags['Name'] else '*blank*')).ljust(40)
         if (args['-v']):
             print (getattr(colored, 'green')(instance.instance_type)),
